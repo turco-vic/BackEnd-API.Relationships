@@ -1,0 +1,32 @@
+{
+  "name": "backend-api.relationships",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turco-vic/BackEnd-API.Relationships.git"
+  },
+  "keywords": [
+    "SENAI, Back-End, Data Base, API"
+  ],
+  "author": "Enzo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turco-vic/BackEnd-API.Relationships/issues"
+  },
+  "homepage": "https://github.com/turco-vic/BackEnd-API.Relationships#readme",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
