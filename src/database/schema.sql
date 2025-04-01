@@ -1,3 +1,7 @@
+CREATE DATABASE hp;
+
+\c hp; 
+
 CREATE TABLE houses (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
