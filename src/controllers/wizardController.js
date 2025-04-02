@@ -33,23 +33,23 @@ const createWizard = async (req, res) => {
 
 const updateWizard = async (req, res) => {
     try {
-        const { name } = req.body;
-        const updatedWizard = await wizardModel.updateWizard(req.params.id, name,);
-        if (!updatedWizard) {
+        const { name, house_id } = req.body;
+        const updateWizard = await wizardModel.updateWizard(req.params.id, name, house_id);
+        if (!updateWizard) {
             return res.status(404).json({ message: "Bruxo não encontrado!" });
         }
-        res.json(updatedWizard);
+        res.json(updateWizard);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao atualizar bruxo!" });
+        res.status(500).json({ message: "Erro ao atualizar Bruxo!" });
     }
 };
 
 const deleteWizard = async (req, res) => {
     try {
-        const message = await wizardModel.deletewizard(req.params.id);
-        res.json({message: "Bruxo deletado com sucesso!"});
+        const message = await wizardModel.deleteWizard(req.params.id);
+        res.json(message);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao deletar bruxo!" });
+        res.status(500).json({ message: "Erro ao deletar Bruxo!" });
     }
 };
 

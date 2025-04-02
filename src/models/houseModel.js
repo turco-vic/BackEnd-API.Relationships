@@ -18,7 +18,7 @@ const createHouse = async (name, founder) => {
     return result.rows[0];
 };
 
-const updateHouse = async ( id, name, founder) => {
+const updateHouse = async (id, name, founder) => {
     const result = await pool.query(
         "UPDATE houses SET name = $1, founder = $2 WHERE id = $3 RETURNING *",
         [name, founder, id]
@@ -28,10 +28,10 @@ const updateHouse = async ( id, name, founder) => {
 
 const deleteHouse = async (id) => {
     const result = await pool.query("DELETE FROM houses WHERE id = $1 RETURNING *", [id]);
-
     if (result.rowCount === 0) {
         return { error: "Casa não encontrada!" };
     }
+    return { message: "Casa deletada com sucesso!" };
 };
 
 module.exports = { getHouses, getHouseById, createHouse, updateHouse, deleteHouse };

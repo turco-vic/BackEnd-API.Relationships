@@ -27,20 +27,20 @@ const createWizard = async (name, house_id) => {
     return result.rows[0];
 };
 
-const updateWizard = async ( name, id ) => {
+const updateWizard = async (id, name, house_id) => {
     const result = await pool.query(
-        "UPDATE wizards SET name = $1 WHERE id = $2 RETURNING *",
-        [name, id]
+        "UPDATE wizards SET name = $1, house_id = $2 WHERE id = $3 RETURNING *",
+        [name, house_id, id]
     );
     return result.rows[0];
 };
 
 const deleteWizard = async (id) => {
     const result = await pool.query("DELETE FROM wizards WHERE id = $1 RETURNING *", [id]);
-
     if (result.rowCount === 0) {
         return { error: "Bruxo não encontrado!" };
     }
+    return { message: "Bruxo deletado com sucesso!" };
 };
 
 module.exports = { getWizards, getWizardById, createWizard, updateWizard, deleteWizard };
